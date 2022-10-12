@@ -249,10 +249,6 @@ public class Bot {
                     this.status = BotStatus.MULTIPLE_GUILDS;
                     this.plugin.getLogger().warning(this.plugin.getLang().getMessage("logger.warning.multiple-guilds"));
                 }
-            } else if (!this.getGuild().getSelfMember().hasPermission(Permission.ADMINISTRATOR)) {
-                this.status = BotStatus.MISSING_PERMISSION;
-                this.plugin.getLogger().severe(this.plugin.getLang().getMessage("logger.error.missing-permission",
-                        this.getJDA().getSelfUser().getApplicationId()));
             } else if (!this.plugin.getConfiguration().getFile().contains(ConfigurationField.VOICE_CHANNEL_ID.toString())) {
                 this.status = BotStatus.NO_VOICE_CHANNEL;
                 this.plugin.getLogger().warning(this.plugin.getLang().getMessage("logger.warning.no-voice-channel"));
